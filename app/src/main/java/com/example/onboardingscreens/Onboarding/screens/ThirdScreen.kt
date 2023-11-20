@@ -25,7 +25,7 @@ class ThirdScreen : Fragment() {
 
         view.findViewById<TextView>(R.id.finish).setOnClickListener{
            findNavController().navigate(R.id.action_viewPagerFragment_to_homeFragment)
-            isFirstTime()
+           markOnboardingAsFinished()
 
 
         }
@@ -33,7 +33,7 @@ class ThirdScreen : Fragment() {
         return view
     }
 
-    private fun isFirstTime() {
+    private fun markOnboardingAsFinished() {
         val sharedPreferences = requireActivity().getSharedPreferences("onBoarding",Context.MODE_PRIVATE)
         sharedPreferences.edit().putBoolean("Finished", true).apply()
     }
